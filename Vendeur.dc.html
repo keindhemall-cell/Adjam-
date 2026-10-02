@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tableau de bord vendeur</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #202923;
+}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; background: #F5F7F6; min-height: 720px">
+<div style="flex: 1 1 220px; max-width: 260px; background: #fff; border-right: 1px solid #E3E8E5; padding: 20px 16px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">
+<div style="font-size: 16px; font-weight: 700; color: #137547; margin-bottom: 12px">Espace vendeur</div>
+<div style="background: #E6F4EC; color: #0E5A35; border-radius: 8px; padding: 10px 12px">Aperçu</div>
+<div style="padding: 10px 12px">Produits</div>
+<div style="padding: 10px 12px">Commandes</div>
+<div style="padding: 10px 12px">Retours et litiges</div>
+<div style="padding: 10px 12px">Versements</div>
+<div style="padding: 10px 12px">Profil commercial</div>
+</div>
+<div style="flex: 999 1 560px; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+<div style="font-size: 22px; font-weight: 700">Aperçu — Boutique Démo A <span style="font-size: 11px; background: #FEF3C7; padding: 3px 8px; border-radius: 6px; vertical-align: middle">DONNÉES FICTIVES</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<sc-for list="{{soldes}}" as="s" hint-placeholder-count="3">
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; align-self: flex-start; background: {{s.bg}}; color: {{s.c}}">{{s.badge}}</span>
+<span style="font-size: 22px; font-weight: 700">{{s.v}} FCFA</span>
+<span style="font-size: 12px; color: #5B665F">{{s.d}}</span>
+</div>
+</sc-for>
+</div>
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 16px; overflow-x: auto">
+<div style="font-weight: 700; margin-bottom: 10px">Commandes récentes <span style="font-weight: 400; font-size: 12px; color: #5B665F">· commission de 10 % déduite de chaque vente</span></div>
+<sc-for list="{{cmds}}" as="c" hint-placeholder-count="3">
+<div style="display: flex; gap: 16px; padding: 10px 0; border-top: 1px solid #E3E8E5; font-size: 13px; min-width: 460px"><span style="flex: 1">{{c.id}}</span><span style="flex: 2">{{c.n}}</span><span style="flex: 1">{{c.px}} FCFA</span><span style="flex: 1; font-weight: 600">{{c.s}}</span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      soldes: [
+        { badge: 'EN ATTENTE', bg: '#FEF3C7', c: '#202923', v: '84 000', d: 'Commandes non encore livrées' },
+        { badge: 'DISPONIBLE', bg: '#E6F4EC', c: '#0E5A35', v: '126 000', d: 'Prêt pour un versement' },
+        { badge: 'DÉJÀ PAYÉ', bg: '#E3E8E5', c: '#202923', v: '540 000', d: 'Versé sur Mobile Money' }
+      ],
+      cmds: [
+        { id: 'DEMO-000123', n: 'Pagne wax 6 yards', px: '12 500', s: 'À préparer' },
+        { id: 'DEMO-000118', n: 'Pagne wax 6 yards ×2', px: '25 000', s: 'Collectée' },
+        { id: 'DEMO-000104', n: 'Pagne bazin', px: '15 000', s: 'Livrée' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

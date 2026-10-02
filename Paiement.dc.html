@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Commande et paiement</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #202923;
+}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #F5F7F6; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #fff; padding: 14px 16px; font-size: 18px; font-weight: 700">Commande et paiement</div>
+<div style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #FEF3C7; color: #202923; border-radius: 10px; padding: 10px 12px; font-size: 12px; font-weight: 600">Maquette de démonstration : aucun paiement réel n'est effectué.</div>
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 12px; font-size: 13px"><b>Adresse de livraison</b><br>Rue des Jardins, Cocody Angré, Abidjan<br><span style="color: #5B665F">Instructions : appeler à l'arrivée</span></div>
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 12px; font-size: 13px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between"><span>Articles (2)</span><span>25 500 FCFA</span></div>
+<div style="display: flex; justify-content: space-between"><span>Livraison</span><span>3 000 FCFA</span></div>
+<div style="display: flex; justify-content: space-between; font-weight: 700"><span>Total</span><span style="color: #137547">28 500 FCFA</span></div>
+</div>
+<div style="font-weight: 700; font-size: 14px">Moyen de paiement (options provisoires)</div>
+<sc-for list="{{moyens}}" as="m" hint-placeholder-count="3">
+<div style="background: {{m.bg}}; border: 1px solid {{m.b}}; border-radius: 12px; min-height: 48px; padding: 0 14px; display: flex; align-items: center; font-weight: 600; font-size: 14px">{{m.n}}</div>
+</sc-for>
+<div style="display: flex; gap: 8px; font-size: 11px; font-weight: 600">
+<span style="background: #FEF3C7; padding: 4px 8px; border-radius: 6px">En attente</span>
+<span style="background: #E6F4EC; color: #0E5A35; padding: 4px 8px; border-radius: 6px">Réussi</span>
+<span style="background: #FEE2E2; color: #991B1B; padding: 4px 8px; border-radius: 6px">Échoué</span>
+</div>
+</div>
+<div style="background: #fff; border-top: 1px solid #E3E8E5; padding: 12px 16px">
+<a href="Suivi.dc.html" style="background: #137547; color: #fff; text-decoration: none; font-weight: 600; border-radius: 10px; min-height: 48px; display: flex; align-items: center; justify-content: center">Payer 28 500 FCFA (simulation)</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { moyens: [
+      { n: 'Orange Money', b: '#137547', bg: '#E6F4EC' },
+      { n: 'MTN MoMo', b: '#D5DDD8', bg: '#fff' },
+      { n: 'Moov Money', b: '#D5DDD8', bg: '#fff' },
+      { n: 'Wave', b: '#D5DDD8', bg: '#fff' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

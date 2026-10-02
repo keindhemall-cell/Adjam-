@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Dashboard administrateur</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #202923;
+}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; background: #F5F7F6; min-height: 720px">
+<div style="flex: 1 1 220px; max-width: 260px; background: #0E3B28; color: #fff; padding: 20px 16px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">
+<div style="font-size: 16px; font-weight: 700; margin-bottom: 12px">Administration</div>
+<div style="background: #137547; border-radius: 8px; padding: 10px 12px">Aperçu</div>
+<div style="padding: 10px 12px">Dossiers vendeurs</div>
+<div style="padding: 10px 12px">Commandes et livraisons</div>
+<div style="padding: 10px 12px">Paiements et versements</div>
+<div style="padding: 10px 12px">Retours et litiges</div>
+<div style="padding: 10px 12px">Zones et frais</div>
+</div>
+<div style="flex: 999 1 560px; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+<div style="font-size: 22px; font-weight: 700">Vue d'ensemble <span style="font-size: 11px; background: #FEF3C7; padding: 3px 8px; border-radius: 6px; vertical-align: middle">DONNÉES FICTIVES</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 16px"><div style="font-size: 12px; color: #5B665F">{{k.l}}</div><div style="font-size: 22px; font-weight: 700">{{k.v}}</div></div>
+</sc-for>
+</div>
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; overflow-x: auto">
+<div style="font-weight: 700">Dossiers vendeurs à valider</div>
+<sc-for list="{{dossiers}}" as="d" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 16px; padding-top: 10px; border-top: 1px solid #E3E8E5; font-size: 13px; min-width: 480px"><span style="flex: 2; font-weight: 600">{{d.n}}</span><span style="flex: 1; background: #FEF3C7; padding: 3px 8px; border-radius: 6px; text-align: center; font-weight: 600">{{d.s}}</span><span style="background: #137547; color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 600">Valider</span></div>
+</sc-for>
+<div style="border-top: 2px dashed #FCA5A5; padding-top: 12px; display: flex; align-items: center; gap: 12px; font-size: 12px; color: #5B665F"><span style="border: 1px solid #B91C1C; color: #B91C1C; padding: 10px 16px; border-radius: 8px; font-weight: 600">Suspendre un vendeur</span>Action sensible : une fenêtre de confirmation s'affiche avant exécution.</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      kpis: [
+        { l: 'Commandes (7 j)', v: '1 240' },
+        { l: 'Ventes', v: '18 600 000 FCFA' },
+        { l: 'Commissions 10 %', v: '1 860 000 FCFA' },
+        { l: 'Litiges ouverts', v: '14' }
+      ],
+      dossiers: [
+        { n: 'Boutique Démo E — Adjamé', s: 'En examen' },
+        { n: 'Boutique Démo F — Adjamé', s: 'Pièces manquantes' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

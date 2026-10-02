@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Suivi de commande</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #202923;
+}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #F5F7F6; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #137547; color: #fff; padding: 20px 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px">Commande de démonstration</div>
+<div style="font-size: 20px; font-weight: 700">N° DEMO-000123</div>
+<div style="font-size: 13px">Livraison estimée : demain, 10 h – 14 h</div>
+</div>
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{etapes}}" as="e" hint-placeholder-count="4">
+<div style="display: flex; gap: 12px; align-items: center">
+<div style="width: 28px; height: 28px; border-radius: 14px; background: {{e.bg}}; color: {{e.c}}; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">{{e.m}}</div>
+<div style="font-size: 14px; font-weight: {{e.w}}">{{e.n}}</div>
+</div>
+</sc-for>
+</div>
+<div style="background: #fff; border: 1px solid #E3E8E5; border-radius: 12px; padding: 14px; font-size: 13px"><b>Récapitulatif</b><br>2 articles · 28 500 FCFA · Cocody Angré<br><span style="color: #5B665F">Contact livreur : [numéro à renseigner]</span></div>
+<a href="Main.dc.html" style="color: #137547; font-weight: 600; text-decoration: none; text-align: center; min-height: 44px; display: flex; align-items: center; justify-content: center">Retour à l'accueil</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { etapes: [
+      { n: 'Préparation chez le vendeur', m: '✓', bg: '#137547', c: '#fff', w: 600 },
+      { n: 'Collecte par le livreur', m: '2', bg: '#F59E0B', c: '#202923', w: 700 },
+      { n: 'Livraison en cours', m: '3', bg: '#E3E8E5', c: '#5B665F', w: 400 },
+      { n: 'Reçue', m: '4', bg: '#E3E8E5', c: '#5B665F', w: 400 }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

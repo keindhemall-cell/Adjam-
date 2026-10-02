@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design system</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #202923;
+}
+</style>
+</helmet>
+<div style="width: 960px; height: 560px; box-sizing: border-box; background: #fff; padding: 32px; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 24px; font-weight: 700">Design system — Marketplace Adjamé</div>
+<div style="display: flex; gap: 12px">
+<sc-for list="{{couleurs}}" as="c" hint-placeholder-count="6">
+<div style="flex: 1; border: 1px solid #E3E8E5; border-radius: 10px; overflow: hidden; font-size: 12px"><div style="height: 56px; background: {{c.h}}"></div><div style="padding: 8px"><b>{{c.n}}</b><br>{{c.h}}</div></div>
+</sc-for>
+</div>
+<div style="display: flex; gap: 12px; align-items: center">
+<span style="background: #137547; color: #fff; padding: 12px 20px; border-radius: 10px; font-weight: 600">Primaire</span>
+<span style="border: 1px solid #137547; color: #137547; padding: 12px 20px; border-radius: 10px; font-weight: 600">Secondaire</span>
+<span style="border: 1px solid #B91C1C; color: #B91C1C; padding: 12px 20px; border-radius: 10px; font-weight: 600">Destructif</span>
+<span style="background: #E3E8E5; color: #5B665F; padding: 12px 20px; border-radius: 10px; font-weight: 600">Désactivé</span>
+</div>
+<div style="display: flex; gap: 10px; font-size: 12px; font-weight: 700">
+<span style="background: #FEF3C7; padding: 4px 10px; border-radius: 6px">En attente</span>
+<span style="background: #E6F4EC; color: #0E5A35; padding: 4px 10px; border-radius: 6px">Disponible / Réussi</span>
+<span style="background: #E3E8E5; padding: 4px 10px; border-radius: 6px">Déjà payé</span>
+<span style="background: #FEE2E2; color: #991B1B; padding: 4px 10px; border-radius: 6px">Échoué / Refusé</span>
+</div>
+<div style="font-size: 13px; color: #5B665F; line-height: 1.5">Typographie Inter : titres 24/20 px gras, texte 14 px, légendes 12 px · Rayons 10–12 px · Grille 8 px · Cibles tactiles ≥ 44 px · Mobile 390 px, tablette 768 px, desktop 1280 px · Orange réservé aux promotions · Prix toujours en FCFA.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":960,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { couleurs: [
+      { n: 'Vert profond', h: '#137547' },
+      { n: 'Vert clair', h: '#E6F4EC' },
+      { n: 'Orange', h: '#F59E0B' },
+      { n: 'Gris clair', h: '#F5F7F6' },
+      { n: 'Anthracite', h: '#202923' },
+      { n: 'Erreur', h: '#B91C1C' }
+    ] };
+  }
+}
+</script>
+</body>
+</html>

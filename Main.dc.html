@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Accueil — Marketplace Adjamé</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #17372F;
+  background: #FFFFFF;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.ph {
+  background-image: url(/_blob/f5f13ce58f3689d2969326185aa892da);
+  background-repeat: no-repeat;
+  background-color: #F0F7F3;
+  width: 100%;
+}
+.w {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+.tb {
+  background: #00583F;
+  color: #E6F2EC;
+  font-size: 12px;
+}
+.tb .w {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 32px;
+}
+.tb span,
+.tb a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tb .sp {
+  flex: 1;
+}
+.hd {
+  position: relative;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid #E1E8E4;
+}
+.hd .w {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  min-height: 82px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo b {
+  display: block;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #08784F;
+}
+.logo i {
+  display: block;
+  font-style: normal;
+  font-size: 10px;
+  color: #17372F;
+  margin-top: 2px;
+}
+.srch {
+  position: relative;
+  flex: 0 1 560px;
+  margin-left: 20px;
+}
+.fld {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 5px 0 14px;
+  background: #F7F9F8;
+  border: 1px solid #E1E8E4;
+  border-radius: 24px;
+  color: #66736D;
+}
+.fld input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: 14px Inter, sans-serif;
+  color: #17372F;
+  outline: none;
+}
+.btn-o {
+  background: #FF9000;
+  color: #fff;
+  border: 0;
+  font: 700 14px Inter, sans-serif;
+  height: 38px;
+  padding: 0 24px;
+  border-radius: 19px;
+  cursor: pointer;
+}
+.btn-o:hover {
+  background: #E88300;
+}
+.sg {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 40, 25, 0.18);
+  padding: 8px;
+  z-index: 30;
+}
+.sgi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.sgi:hover {
+  background: #F0F7F3;
+}
+.sgi .ph {
+  width: 48px;
+  border-radius: 8px;
+}
+.sgi small {
+  display: block;
+  color: #66736D;
+}
+.fl {
+  flex: 1;
+}
+.ib {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #17372F;
+  border-radius: 22px;
+  cursor: pointer;
+}
+.ib:hover {
+  background: #F0F7F3;
+}
+.bd {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #FF9000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mn {
+  position: absolute;
+  top: 70px;
+  right: max(24px, calc((100% - 1200px) / 2 + 24px));
+  width: 196px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 32px rgba(0, 40, 25, 0.2);
+  padding: 8px;
+  z-index: 40;
+}
+.mi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.mi:hover {
+  background: #F0F7F3;
+}
+.mi.on {
+  background: #E4F1EA;
+  color: #08784F;
+}
+.mi .bd {
+  position: static;
+  margin-left: auto;
+}
+.sub {
+  padding: 0 0 4px 44px;
+  font-size: 13px;
+  color: #66736D;
+}
+.sub a {
+  display: block;
+  padding: 7px 0;
+}
+.hero {
+  position: relative;
+  height: 340px;
+  background: linear-gradient(90deg, #0A4A33 0%, #0B5A3C 55%, #0F6B45 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.hero .ph {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+}
+.hero .fade {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 56%;
+  background: linear-gradient(90deg, #0B5A3C 0%, rgba(11, 90, 60, 0) 55%);
+}
+.hero .w {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+}
+.tag {
+  background: #FF9000;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.hero h1 {
+  margin: 0;
+  max-width: 460px;
+  font-size: 42px;
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.hero h1 em {
+  color: #FF9000;
+  font-style: italic;
+}
+.hero p {
+  margin: 0;
+  max-width: 400px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.btn-l {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 26px;
+  background: #FF9000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+.btn-l:hover {
+  background: #E88300;
+}
+.hand {
+  position: absolute;
+  right: 40px;
+  bottom: 36px;
+  font-family: Caveat, cursive;
+  font-size: 26px;
+  line-height: 1;
+  text-align: right;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+.hand::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 70%;
+  margin: 6px 0 0 auto;
+  background: #FF9000;
+  border-radius: 2px;
+}
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 5px;
+  background: #D5DDD9;
+}
+.dots i:first-child {
+  background: #FF9000;
+}
+.srv {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 20px;
+}
+.sc {
+  background: #F0F7F3;
+  border-radius: 14px;
+  padding: 22px 12px;
+  text-align: center;
+}
+.sc .ci {
+  width: 62px;
+  height: 62px;
+  border-radius: 31px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.sc b {
+  display: block;
+  font-size: 18px;
+  color: #08784F;
+}
+.sc span {
+  font-size: 14px;
+  color: #66736D;
+}
+.sec {
+  padding-top: 36px;
+}
+.sh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.sh h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.acc {
+  width: 6px;
+  height: 36px;
+  border-radius: 3px;
+  background: #FF9000;
+}
+.sh small {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #66736D;
+  margin-top: 2px;
+}
+.va {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: #08784F;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.cg {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.cc {
+  background: #fff;
+  border: 1px solid #E1E8E4;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 60, 40, 0.06);
+}
+.cc .ph {
+  display: block;
+}
+.cb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 14px 16px;
+}
+.cb div {
+  flex: 1;
+  min-width: 0;
+}
+.cb b {
+  display: block;
+  font-size: 16px;
+}
+.cb small {
+  color: #66736D;
+  font-size: 12px;
+}
+.go {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: #08784F;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.pro {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #F58A00 0%, #FF9A1A 55%, #FFB347 100%);
+  border-radius: 14px;
+  overflow: hidden;
+  color: #fff;
+}
+.pro > div:first-child {
+  flex: 1;
+  padding: 28px 32px;
+}
+.pro h2 {
+  margin: 0 0 10px;
+  max-width: 420px;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+.pro p {
+  margin: 0 0 18px;
+  max-width: 420px;
+  font-size: 15px;
+}
+.btn-w {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 22px;
+  background: #fff;
+  color: #08784F;
+  font-weight: 700;
+  font-size: 14px;
+}
+.pro .ph {
+  width: 52%;
+  flex: none;
+}
+.two {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+}
+.pg {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.pc {
+  position: relative;
+  background: #fff;
+  border: 1px solid #E1E8E4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 60, 40, 0.06);
+}
+.pc .ph {
+  display: block;
+}
+.pb {
+  display: block;
+  padding: 8px 10px 10px;
+  font-size: 12px;
+}
+.pb b {
+  display: block;
+  font-size: 13px;
+}
+.pb em {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #FF9000;
+  margin: 3px 0;
+}
+.pb small {
+  color: #66736D;
+}
+.hb {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  border: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #66736D;
+}
+.pop {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #08784F;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+.sg3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.ft {
+  margin-top: 40px;
+  background: #00583F;
+  color: #DCEBE3;
+  font-size: 13px;
+}
+.fg {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 32px;
+  padding: 36px 0 28px;
+}
+.ft h4 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 15px;
+}
+.ft .lk a {
+  display: block;
+  padding: 6px 0;
+}
+.ft .ct span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.soc {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  color: #fff;
+}
+.soc a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lg {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.lg .w {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 56px;
+  font-size: 12px;
+}
+.pay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pay i {
+  font-style: normal;
+  background: #fff;
+  color: #17372F;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+@media (max-width: 1023px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+  .fg {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cg,
+  .srv {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .w {
+    padding: 0 16px;
+  }
+  .tb .c,
+  .tb .r {
+    display: none;
+  }
+  .srch {
+    order: 5;
+    flex: 1 1 100%;
+    margin: 0 0 12px;
+  }
+  .mn {
+    right: 16px;
+  }
+  .hero {
+    height: auto;
+    padding-bottom: 20px;
+  }
+  .hero .ph {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+  .hero .fade {
+    display: none;
+  }
+  .hero .ph {
+    order: 2;
+  }
+  .hero .w {
+    order: 1;
+    padding-top: 24px;
+    padding-bottom: 8px;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .hand {
+    display: none;
+  }
+  .dots {
+    display: none;
+  }
+  .pro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pro .ph {
+    width: 100%;
+  }
+  .pro > div:first-child {
+    padding: 24px 20px;
+  }
+  .pro h2 {
+    font-size: 24px;
+  }
+  .pg {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sg3 {
+    grid-template-columns: 1fr;
+  }
+  .sh h2 {
+    font-size: 20px;
+  }
+  .sh .va span {
+    display: none;
+  }
+  .fg {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</helmet>
+<div>
+<div class="tb"><div class="w"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11zM12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5"></path></svg>Livraison à Abidjan</span><span class="c"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"></path></svg>Livraison rapide partout dans la ville</span><span class="sp"></span><a class="r" href="Main.dc.html">Aide</a><a class="r" href="Main.dc.html">Nous contacter</a></div></div>
+<header class="hd"><div class="w">
+<a class="logo" href="Main.dc.html"><svg width="44" height="44" viewBox="0 0 44 44"><path d="M12 14h24l-2 24H14z" fill="#FF9000"></path><path d="M17 17v-3a7 7 0 0114 0v3" fill="none" stroke="#08784F" stroke-width="3.2" stroke-linecap="round"></path><path d="M20 26l3 3 6-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#08784F">Adjamé</b><i style="color:#17372F">Le marché à portée de main</i></span></a>
+<div class="srch">
+<div class="fld"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-3.5-3.5"></path></svg><input type="search" placeholder="Que recherchez-vous aujourd'hui ?" aria-label="Rechercher un produit" value="{{q}}" onChange="{{onSearch}}"><button class="btn-o" onClick="{{doSearch}}">Rechercher</button></div>
+<sc-if value="{{showSg}}" hint-placeholder-val="{{ false }}"><div class="sg">
+<sc-for list="{{results}}" as="r" hint-placeholder-count="2"><a class="sgi" href="Produit.dc.html"><div class="ph" style="{{r.st}}"></div><span><b>{{r.n}}</b><small>{{r.px}} FCFA · {{r.v}}</small></span></a></sc-for>
+<sc-if value="{{noRes}}" hint-placeholder-val="{{ false }}"><div style="padding:14px;font-size:14px;color:#66736D">Aucun résultat pour cette recherche (catalogue de démonstration).</div></sc-if>
+<button class="btn-o" style="background:#F0F7F3;color:#08784F;height:36px;margin:6px 8px" onClick="{{closeSg}}">Fermer</button>
+</div></sc-if>
+</div>
+<span class="fl"></span>
+<a class="ib" href="Suivi.dc.html" aria-label="Mon compte"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 12a4 4 0 100-8 4 4 0 000 8M4 21c1-4.5 4-6 8-6s7 1.5 8 6"></path></svg></a>
+<a class="ib" href="Panier.dc.html" aria-label="Panier, 3 articles"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 4h2l2.5 11h10L20 7H6M9 19.5a.5.5 0 100 .01M17 19.5a.5.5 0 100 .01"></path></svg><span class="bd">3</span></a>
+<button class="ib" style="width:56px" aria-label="Menu" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 9l6 6 6-6"></path></svg></button>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><nav class="mn">
+<sc-for list="{{items}}" as="i" hint-placeholder-count="5"><a class="mi {{i.cls}}" href="{{i.href}}" onClick="{{i.go}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="{{i.d}}"></path></svg>{{i.n}}<sc-if value="{{i.badge}}" hint-placeholder-val="{{ false }}"><span class="bd">3</span></sc-if><sc-if value="{{i.chev}}" hint-placeholder-val="{{ false }}"><span style="margin-left:auto"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M9 6l6 6-6 6"></path></svg></span></sc-if></a>
+<sc-if value="{{i.sub}}" hint-placeholder-val="{{ false }}"><div class="sub"><sc-for list="{{cats}}" as="c" hint-placeholder-count="3"><a href="Main.dc.html#categories">{{c}}</a></sc-for></div></sc-if>
+</sc-for>
+</nav></sc-if>
+</div></header>
+<section class="hero">
+<div class="ph" role="img" style="aspect-ratio:370/318;background-size:276.76% auto;background-position:65.75% 9.36%"></div><div class="fade"></div>
+<div class="w"><span class="tag">Bienvenue sur Adjamé</span><h1>Le meilleur du marché d'Adjamé <em>à portée de main !</em></h1><p>Des produits de qualité, des vendeurs de confiance et une livraison rapide à Abidjan.</p><a class="btn-l" href="Main.dc.html#categories">Découvrir maintenant <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="hand">Soutenons nos commerçants d'Adjamé !</div>
+<div class="dots"><i></i><i></i><i></i></div>
+</section>
+<div class="w"><div class="srv"><div class="sc"><div class="ci" style="background:#08784F"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"></path></svg></div><b>Vendeurs vérifiés</b><span>Des commerçants de confiance</span></div><div class="sc"><div class="ci" style="background:#FF9000"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7M7 19.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3M17 19.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3"></path></svg></div><b>Livraison rapide</b><span>À domicile ou au bureau</span></div><div class="sc"><div class="ci" style="background:#08784F"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14v-2a8 8 0 0116 0v2M4 14h3v5H4zM17 14h3v5h-3zM20 19c0 2-3 3-8 3"></path></svg></div><b>Service client</b><span>Toujours à votre écoute</span></div><div class="sc"><div class="ci" style="background:#FF9000"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12h6"></path></svg></div><b>Paiement sécurisé</b><span>Simple et fiable</span></div></div></div>
+<section class="w sec" id="categories"><div class="sh"><h2><span class="acc"></span><span>Nos catégories<small>Explorez nos différentes catégories et trouvez ce qu'il vous faut.</small></span></h2><a class="va" href="Main.dc.html"><span>Voir toutes les catégories</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="cg"><sc-for list="{{catCards}}" as="c" hint-placeholder-count="4"><a class="cc" href="Main.dc.html"><div class="ph" style="{{c.st}}"></div><div class="cb"><div><b>{{c.n}}</b><small>{{c.d}}</small></div><span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div></a></sc-for></div>
+<div style="font-size:12px;color:#66736D;margin-top:8px">Catégories d'exemple, administrables par l'administrateur du marketplace.</div></section>
+<section class="w sec"><div class="pro"><div><h2>Des prix imbattables sur les produits du quotidien</h2><p>Qualité, fraîcheur et variété, directement auprès des commerçants d'Adjamé.</p><a class="btn-w" href="Main.dc.html">Voir les offres <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div><div class="ph" role="img" style="aspect-ratio:486/159;background-size:210.70% auto;background-position:92.94% 67.18%"></div></div></section>
+<section class="w sec"><div class="two">
+<div><div class="sh"><h2><span style="color:#FF9000;display:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3c1 4 5 5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"></path></svg></span>Les bonnes affaires</h2><a class="va" href="Main.dc.html"><span>Voir tout</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="pg"><sc-for list="{{affaires}}" as="p" hint-placeholder-count="4"><div class="pc"><a href="Produit.dc.html"><div class="ph" style="{{p.st}}"></div></a><sc-if value="{{p.pop}}" hint-placeholder-val="{{ false }}"><span class="pop">Produit populaire</span></sc-if><button class="hb" aria-label="Ajouter aux favoris" onClick="{{p.fav}}" style="color:{{p.fc}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.600-7 10-7 10z"></path></svg></button><a class="pb" href="Produit.dc.html"><b>{{p.n}}</b><em>{{p.px}} FCFA</em><small>{{p.v}}</small></a></div></sc-for></div></div>
+<div><div class="sh"><h2><span style="color:#FF9000;display:flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9 20v-6h6v6"></path></svg></span>Nos boutiques partenaires</h2><a class="va" href="Main.dc.html"><span>Voir tout</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="sg3"><sc-for list="{{boutiques}}" as="b" hint-placeholder-count="3"><a class="pc" href="Main.dc.html"><div class="ph" style="{{b.st}}"></div><div class="pb"><b>{{b.n}}</b><small style="display:block;color:#17372F">★ {{b.note}}</small><small>{{b.d}}</small></div></a></sc-for></div>
+<div style="font-size:12px;color:#66736D;margin-top:8px">Notes illustratives de démonstration, pas de vrais avis clients.</div></div>
+</div></section>
+<footer class="ft"><div class="w"><div class="fg">
+<div><a class="logo" href="Main.dc.html"><svg width="44" height="44" viewBox="0 0 44 44"><path d="M12 14h24l-2 24H14z" fill="#FF9000"></path><path d="M17 17v-3a7 7 0 0114 0v3" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"></path><path d="M20 26l3 3 6-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#fff">Adjamé</b><i style="color:#DCEBE3">Le marché à portée de main</i></span></a><p style="line-height:1.55;margin:14px 0 0;max-width:280px">Votre marketplace de confiance pour acheter facilement les produits des commerçants d'Adjamé, à Abidjan.</p><div class="soc"><a href="Main.dc.html" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"></path></svg></a><a href="Main.dc.html" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM12 8a4 4 0 100 8 4 4 0 000-8M17.5 6.5h.01"></path></svg></a><a href="Main.dc.html" aria-label="TikTok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 3v11a3.5 3.5 0 11-3.5-3.5M14 3c.5 3 2.5 4.5 5 4.5"></path></svg></a><a href="Main.dc.html" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 7a3 3 0 013-3h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3zM10 9l5 3-5 3z"></path></svg></a></div></div>
+<div class="lk"><h4>Liens utiles</h4><a href="Main.dc.html">Accueil</a><a href="Main.dc.html#categories">Catégories</a><a href="Main.dc.html">Mes commandes</a><a href="Suivi.dc.html">Suivre mon colis</a><a href="Main.dc.html">Aide &amp; FAQ</a></div>
+<div class="lk"><h4>À propos</h4><a href="Main.dc.html">Qui sommes-nous</a><a href="Main.dc.html">Nos vendeurs</a><a href="Main.dc.html">Nos engagements</a><a href="Main.dc.html">Conditions générales</a><a href="Main.dc.html">Politique de confidentialité</a></div>
+<div class="ct"><h4>Nous contacter</h4><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"></path></svg>+225 07 00 00 00 00</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 6h18v12H3zM3 7l9 6 9-6"></path></svg>contact@adjame.ci</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"></path></svg>Abidjan, Côte d'Ivoire</span><div style="font-family:Caveat,cursive;font-size:22px;color:#fff;transform:rotate(-6deg);margin-top:14px">Ensemble pour un commerce local plus fort</div><div style="height:3px;width:120px;background:#FF9000;border-radius:2px;margin-top:4px"></div><div style="font-size:11px;margin-top:10px;color:#A9C9BB">Coordonnées fictives de démonstration.</div></div>
+</div></div>
+<div class="lg"><div class="w"><span>© 2025 Adjamé. Tous droits réservés.</span><div class="pay"><span style="display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 11V8a6 6 0 1112 0v3M5 11h14v10H5z"></path></svg>Paiement sécurisé</span><i>Mobile Money</i><i>Carte bancaire</i></div></div></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"menuOpen":{"editor":"boolean","default":true},"connecte":{"editor":"boolean","default":true},"$preview":{"width":1280,"height":1900}}'>
+class Component extends DCLogic {
+  state = { menu: null, cats: false, q: '', fav: {}, closed: false };
+  renderVals() {
+    const S = {"hero": "aspect-ratio:370/318;background-size:276.76% auto;background-position:65.75% 9.36%", "c1": "aspect-ratio:227/118;background-size:451.10% auto;background-position:4.77% 50.35%", "c2": "aspect-ratio:220/118;background-size:465.45% auto;background-position:35.20% 50.35%", "c3": "aspect-ratio:222/118;background-size:461.26% auto;background-position:65.09% 50.35%", "c4": "aspect-ratio:224/118;background-size:457.14% auto;background-position:95.25% 50.35%", "promo": "aspect-ratio:486/159;background-size:210.70% auto;background-position:92.94% 67.18%", "p1": "aspect-ratio:104/68;background-size:984.62% auto;background-position:4.78% 79.97%", "p2": "aspect-ratio:100/72;background-size:1024.00% auto;background-position:19.59% 79.92%", "p3": "aspect-ratio:100/72;background-size:1024.00% auto;background-position:33.87% 79.92%", "p4": "aspect-ratio:100/72;background-size:1024.00% auto;background-position:48.27% 79.92%", "s1": "aspect-ratio:119/55;background-size:860.50% auto;background-position:65.52% 77.99%", "s2": "aspect-ratio:119/55;background-size:860.50% auto;background-position:80.66% 77.99%", "s3": "aspect-ratio:119/55;background-size:860.50% auto;background-position:95.80% 77.99%"};
+    const set = (o) => this.setState(o);
+    const P = [
+      { id: 1, n: 'Tomates fraîches (1 kg)', px: '1 200', v: 'Chez Awa Market', st: S.p1, pop: true },
+      { id: 2, n: 'Huile de palme (1 L)', px: '2 500', v: 'Épicerie Sainte Rita', st: S.p2 },
+      { id: 3, n: 'Riz parfumé (5 kg)', px: '4 500', v: 'Chez Le Bon Coin', st: S.p3 },
+      { id: 4, n: 'Palette de maquillage', px: '6 800', v: 'Beauty Style', st: S.p4 }
+    ];
+    const open = this.state.menu === null ? (this.props.menuOpen ?? true) : this.state.menu;
+    const on = this.props.connecte ?? true;
+    const base = [
+      { n: 'Accueil', d: 'M3 11l9-7 9 7v9H3zM9 20v-6h6v6', href: 'Main.dc.html', cls: 'on' },
+      { n: 'Catégories', d: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z', href: '#categories', chev: true, sub: this.state.cats, go: () => set({ cats: !this.state.cats }) },
+      { n: 'Panier', d: 'M3 4h2l2.5 11h10L20 7H6', href: 'Panier.dc.html', badge: true }
+    ];
+    const tail = on
+      ? [['Suivre mon colis', 'M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v8', 'Suivi.dc.html'], ['Mes commandes', 'M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1', 'Suivi.dc.html'], ['Mon compte', 'M12 12a4 4 0 100-8 4 4 0 000 8M4 21c1-4.5 4-6 8-6s7 1.5 8 6', 'Suivi.dc.html'], ['Déconnexion', 'M9 21H5V3h4M16 17l5-5-5-5M21 12H9', 'Main.dc.html']]
+      : [['Connexion', 'M15 3h4v18h-4M10 17l5-5-5-5M15 12H3', 'Main.dc.html'], ['Inscription', 'M12 12a4 4 0 100-8 4 4 0 000 8M4 21c1-4.5 4-6 8-6s7 1.5 8 6', 'Main.dc.html']];
+    const items = base.concat(tail.map((t) => ({ n: t[0], d: t[1], href: t[2] })));
+    const q = this.state.q.trim().toLowerCase();
+    const results = q ? P.filter((p) => (p.n + ' ' + p.v).toLowerCase().includes(q)) : [];
+    return {
+      q: this.state.q,
+      menuOpen: open,
+      toggleMenu: () => set({ menu: !open }),
+      items: items,
+      cats: ['Vivrier', 'Alimentation', 'Beauté & Soins', 'Maison & Déco', 'Électronique', 'Livres et fournitures'],
+      onSearch: (e) => set({ q: e.target.value, closed: false }),
+      doSearch: () => set({ closed: false }),
+      closeSg: () => set({ closed: true, q: '' }),
+      showSg: q.length > 0 && !this.state.closed,
+      results: results,
+      noRes: q.length > 0 && results.length === 0,
+      catCards: [
+        { n: 'Vivrier', d: 'Fruits, légumes, tubercules...', st: S.c1 },
+        { n: 'Alimentation', d: 'Pâtes, riz, conserves...', st: S.c2 },
+        { n: 'Beauté & Soins', d: 'Maquillage, soins, parfums...', st: S.c3 },
+        { n: 'Maison & Déco', d: 'Ustensiles, linge, décoration...', st: S.c4 }
+      ],
+      affaires: P.map((p) => ({ ...p, fc: this.state.fav[p.id] ? '#E11D48' : '#66736D', fav: () => set({ fav: { ...this.state.fav, [p.id]: !this.state.fav[p.id] } }) })),
+      boutiques: [
+        { n: 'Chez Awa Market', note: '4,5', d: 'Produits alimentaires', st: S.s1 },
+        { n: 'Beauty Style', note: '4,3', d: 'Beauté & soins', st: S.s2 },
+        { n: 'Maison Déco', note: '4,6', d: 'Articles de maison', st: S.s3 }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
